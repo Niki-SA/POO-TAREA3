@@ -1,36 +1,19 @@
-def suma(a, b):
-    return a + b
+import random
 
-def resta(a, b):
-    return a - b
+def adivina_el_numero():
+    numero_secreto = random.randint(1, 100)
+    intentos = 0
 
-def multiplicacion(a, b):
-    return a * b
+    while True:
+        intento = int(input("Adivina el número (entre 1 y 100): "))
+        intentos += 1
 
-def division(a, b):
-    if b != 0:
-        return a / b
-    else:
-        return "Error: División por cero"
+        if intento < numero_secreto:
+            print("Demasiado bajo")
+        elif intento > numero_secreto:
+            print("Demasiado alto")
+        else:
+            print(f"¡Felicidades! Adivinaste el número en {intentos} intentos.")
+            break
 
-print("Selecciona operación:")
-print("1. Suma")
-print("2. Resta")
-print("3. Multiplicación")
-print("4. División")
-
-eleccion = input("Ingresa elección (1/2/3/4): ")
-
-num1 = float(input("Ingresa el primer número: "))
-num2 = float(input("Ingresa el segundo número: "))
-
-if eleccion == '1':
-    print("Resultado de la suma es:", suma(num1, num2))
-elif eleccion == '2':
-    print("Resultado de la resta es:", resta(num1, num2))
-elif eleccion == '3':
-    print("Resultado de la multiplicacion es:", multiplicacion(num1, num2))
-elif eleccion == '4':
-    print("Resultado de la division es:", division(num1, num2))
-else:
-    print("Entrada no válida")
+adivina_el_numero()
